@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace lab2Maxwell
+{
+    public partial class frmCatering : Form
+    {   //constant variables to hold prices for the entrees and drink options
+        const double PRIME_RIB = 25.95;
+        const double CHICKEN = 18.95;
+        const double PASTA = 12.95;
+        const double OPEN_BAR = 25.00;
+        const double WINE = 8.00;
+        //module-level variables
+        double total = 0.0;//hold the data that updates for the price of the food/drink of the event
+        int guests = 0;//hold the data for the number of the people attending the event
+
+        public frmCatering()
+        {
+            InitializeComponent();
+        }
+    
+
+        private void btnExit_Click(object sender, EventArgs e)//exit the program
+        {
+            DialogResult result;
+            result = MessageBox.Show("Are you sure you want to quit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)//check to see if the person really wanted to quit
+            {
+                this.Close();
+            }
+
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)//calculate
+        {
+           
+            total = 0.0;//reset the total to 0.0 if there is previous data
+
+            try
+            {
+                guests = Convert.ToInt32(txtGuests.Text);//try to convert to an integer
+                if (guests < 0)//if integer, check to see if it is a positive number
+                {
+                    MessageBox.Show("Please enter a non-negative number.");
+                }
+                else//if number is a positive integer, run the methods
+                {
+                    getGuests();
+                    getEntreeCost();
+                    getDrinkCost();
+                    lblTotalCost.Text = total.ToString("C");
+                }
+                
+            }
+            catch(Exception)//catch anything that is not a positive whole number
+            {
+                MessageBox.Show("Please provide positive whole numbers only.");
+            }
+
+            
+        }
+
+        private void getGuests()//get the number of guests who are attending the event
+        {
+            guests = Convert.ToInt16(txtGuests.Text);
+        }
+
+        private void getEntreeCost()//determine the cost of the food options
+        {
+            if (rdoPrimeRib.Checked)
+            {
+                total += (guests * PRIME_RIB);
+            }
+            else if (rdoChicken.Checked)
+            {
+                total += (guests * CHICKEN);
+            }
+            else
+            {
+                total += (guests * PASTA);
+            }
+        }
+
+        private void getDrinkCost() //determine the cost of the drink options and add to the total
+        {
+            if (chkOpenBar.Checked)
+            {
+                total += (guests * OPEN_BAR);
+            }
+            if(chkWine.Checked)
+            {
+                total += (guests * WINE);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)//reset all the values on clear button click
+        {
+            rdoPrimeRib.Checked = true;
+            chkOpenBar.Checked = false;
+            chkWine.Checked = false;
+            lblTotalCost.Text = String.Empty;
+            txtGuests.Text = String.Empty;
+            total = 0.0;
+        }
+
+        private void rdoPrimeRib_CheckedChanged(object sender, EventArgs e)//change the picture on prime rib radio button click
+        {
+            picFood.Image = lstEntrees.Images["primerib.jpg"];
+        }
+
+        private void rdoChicken_CheckedChanged(object sender, EventArgs e)//change the picture on chicken radio button click
+        {
+            picFood.Image = lstEntrees.Images["chicken.jpg"];
+        }
+
+        private void rdoPasta_CheckedChanged(object sender, EventArgs e) //change the picture on pasta radio button click
+        {
+            picFood.Image = lstEntrees.Images["pasta.jpg"];
+        }
+    }
+}
