@@ -8,6 +8,9 @@
     <meta name="author" content="Matthew Maxwell">
     <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="style1.css">
+    <link type="text/JavaScript" href="assets/js/project1.js">
+    <link type="text/JavaScript" href="assets/js/lab2.js">
+    <link type="text/JavaScript" href="assets/js/script1.js">
     <style>
     a {
         color: darkorange;
@@ -26,3 +29,105 @@
     <a href="matthewmaxwellhome.html#contact">Contact Me</a>
     <p style="padding: 4px"><span style="display: inline-block; width: 4ch;">&#9;</span>Matthew Maxwell</p>
 </nav>
+<p>Since JavaScript can run on here...I will include the scripts here. More will be added over time, but for now here are a few interactive examples.</p>
+<section id="math">
+    <button id="addition" onclick="addition()">Addition</button>
+    <button id="subtraction" onclick="subtraction()">Subtraction</button>
+    <button id="multiply" onclick="multiply()">Multiplication</button>
+    <button id="division" onclick="division()">Division</button>
+  </section>
+
+  <section id="denoms">
+        <p>Please enter the number of tokens you wish to break down.<br>
+            (Between 20-100), Please. Non whole numbers will be converted to whole numbers.</p>
+            
+            <input id="tokens" type="text">
+            <!--<script type="text/javascript">
+                    var tk = document.getElementById("tokens").value;
+            </script>-->
+            <button onclick="denom(tokens.value)">Submit</button>
+            
+            <p id="demo0"></p>
+            <p id="demo1"></p>
+            <p id="demo2"></p>
+            <p id="demo3"></p>
+            <p id="demo4"></p>
+  </section>
+
+  <form name="contactForm" method="post" onsubmit="return validateForm()">
+        First Name<br><input type="text" name="fname"><br>
+        Last Name<br><input type="text" name="lname"><br>
+        Address<br><input type="text" name="address"><br>
+        City<br><input type="text" name="city"><br>
+        State<br><select name="state" id="state">
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="DC">DC</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="GA">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="In">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+              </select>
+            <br>
+        Phone<br><input type="text" name="phone" maxlength="15"><br>
+        Email<br><input type="text" name="email"><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+    <hr>
+    <p id="here0"></p>
+    <p id="here1"></p>
+    <p id="here2"></p>
+    <p id="here3"></p>
+    <p id="here4"></p>
+
+            
+<footer>
+Copyright&copy; 2019 Matthew Maxwell<br>
+Last Edit: 1/23/2019
+</footer>
+</body>
+</html>
